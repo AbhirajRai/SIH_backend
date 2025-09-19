@@ -11,10 +11,14 @@ from bson import ObjectId
 from datetime import datetime
 import os
 import warnings
+from dotenv import load_dotenv  # Add this import
 
 # Suppress warnings
 warnings.filterwarnings("ignore")
 os.environ["PYTHONWARNINGS"] = "ignore"
+
+# Load environment variables from .env file
+load_dotenv()  # Add this line
 
 app = FastAPI(title="Simple MindCare Test", version="1.0.0")
 
@@ -28,7 +32,10 @@ app.add_middleware(
 )
 
 # Database connection
-MONGODB_URL = "mongodb+srv://mindcare_user:IrmKVH96TWThI26J@mindcareluster.ftrolml.mongodb.net/?retryWrites=true&w=majority&appName=MindCareluster"
+MONGODB_URL = os.getenv(
+    "MONGODB_URL",
+    "mongodb+srv://mindcare_user:IrmKVH96TWThI26J@mindcareluster.ftrolml.mongodb.net/?retryWrites=true&w=majority&appName=MindCareluster"
+)
 
 try:
     client = MongoClient(MONGODB_URL, serverSelectionTimeoutMS=5000)
