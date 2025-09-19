@@ -18,14 +18,24 @@ warnings.filterwarnings("ignore")
 os.environ["PYTHONWARNINGS"] = "ignore"
 
 # Load environment variables from .env file
-load_dotenv()  # Add this line
+load_dotenv()
+
+# Get allowed origins from environment or use provided URLs
+ALLOWED_ORIGINS = os.getenv("CORS_ORIGINS")
+if not ALLOWED_ORIGINS or ALLOWED_ORIGINS == "*":
+    ALLOWED_ORIGINS = [
+        "https://sih-frontend-fw94ep52t-abhirajrais-projects.vercel.app",
+        "https://sih-backend-bcnq.onrender.com"
+    ]
+else:
+    ALLOWED_ORIGINS = [origin.strip() for origin in ALLOWED_ORIGINS.split(",")]
 
 app = FastAPI(title="Simple MindCare Test", version="1.0.0")
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
@@ -107,4 +117,9 @@ def log_mood(mood_data: dict):
 if __name__ == "__main__":
     import uvicorn
     print("🚀 Starting simple test server...")
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
+    uvicorn.run(
+        app,
+        host=os.getenv("HOST", "0.0.0.0"),
+        port=int(os.getenv("PORT", "8000")),
+        log_level=os.getenv("LOG_LEVEL", "info")
+    )
