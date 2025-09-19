@@ -1,0 +1,87 @@
+{
+  "timestamp": "2025-09-08T12:18:55.745383",
+  "summary": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0
+  },
+  "results": [
+    {
+      "test": "Database Connection",
+      "status": "PASSED",
+      "message": "MongoDB connection successful",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:49.360895"
+    },
+    {
+      "test": "Database Initialization",
+      "status": "PASSED",
+      "message": "Database collections initialized",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.131414"
+    },
+    {
+      "test": "Sentiment Analysis",
+      "status": "PASSED",
+      "message": "Sentiment detected: positive",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.271542"
+    },
+    {
+      "test": "Emotion Detection",
+      "status": "PASSED",
+      "message": "Emotion detected: fear",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.428232"
+    },
+    {
+      "test": "Distress Detection",
+      "status": "PASSED",
+      "message": "Distress detection working: urgent=True",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.477121"
+    },
+    {
+      "test": "Password Hashing",
+      "status": "PASSED",
+      "message": "Password hashing working",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.725347"
+    },
+    {
+      "test": "JWT Token Creation",
+      "status": "PASSED",
+      "message": "JWT token creation working",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.743956"
+    },
+    {
+      "test": "User Model",
+      "status": "PASSED",
+      "message": "UserCreate model validation working",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.744448"
+    },
+    {
+      "test": "Mood Model",
+      "status": "PASSED",
+      "message": "MoodLog model validation working",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.744574"
+    },
+    {
+      "test": "FastAPI App",
+      "status": "PASSED",
+      "message": "FastAPI app configured with 27 routes",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.744666"
+    },
+    {
+      "test": "CORS Middleware",
+      "status": "PASSED",
+      "message": "CORS middleware configured",
+      "details": null,
+      "timestamp": "2025-09-08T12:18:55.744794"
+    }
+  ]
+}
