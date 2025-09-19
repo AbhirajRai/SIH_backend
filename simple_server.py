@@ -116,10 +116,11 @@ def log_mood(mood_data: dict):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting simple test server...")
+    port = int(os.getenv("PORT", "10000"))  # Use 10000 as fallback for Render
+    print(f"🚀 Starting simple test server on port {port}...")
     uvicorn.run(
         app,
         host=os.getenv("HOST", "0.0.0.0"),
-        port=int(os.getenv("PORT", "8000")),
+        port=port,
         log_level=os.getenv("LOG_LEVEL", "info")
     )
